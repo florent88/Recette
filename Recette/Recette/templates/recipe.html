@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='content/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+    <main>
+        <section>
+            <div class="recipe-details">
+                <h2>{{ recipe.title }}</h2>
+                {% if recipe.image_file %}
+                    <img src="{{ url_for('static', filename='uploads/' + recipe.image_file) }}" alt="{{ recipe.title }} Image" class="recipe-image" style="width: 600px; height: auto;">
+                {% else %}
+                    <p>No image available</p>
+                {% endif %}
+                <p>{{ recipe.description }}</p>
+            </div>
+        </section>
+        <section>
+            <h3>Ingredients</h3>
+            <ul>
+                {% for ingredient in recipe.ingredients.split('\n') %}
+                <li>{{ ingredient }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section>
+            <h3>Steps</h3>
+            <ol>
+                {% for step in recipe.steps.split('\n') %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+        </section>
+        <section>
+            <h3>Edit Recipe</h3>
+            <form action="{{ url_for('recipe', id=recipe.id) }}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" value="{{ recipe.title }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description">{{ recipe.description }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ingredients">Ingredients</label>
+                    <textarea id="ingredients" name="ingredients">{{ recipe.ingredients }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="steps">Steps</label>
+                    <textarea id="steps" name="steps">{{ recipe.steps }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Update Image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+                    <div class="form-group">
+                        <button type="submit" class="button">Update Recipe</button>
+                    </div>
+            </form>
+            <p>
+                <a href="{{ url_for('recipes') }}" class="button">Back to Recipes</a>
+                <a href="{{ url_for('home') }}" class="button">Back to Home</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>

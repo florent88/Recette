@@ -1,0 +1,109 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f8ff;
+	color: #333;
+}
+
+header {
+	background-color: #007bff;
+	color: white;
+	padding: 1rem;
+	text-align: center;
+}
+
+main {
+	padding: 2rem;
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+section {
+	margin-bottom: 2rem;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-group {
+	margin-bottom: 1.5rem;
+}
+
+label {
+	margin-bottom: 0.5rem;
+	font-weight: bold;
+}
+
+input[type="text"], textarea {
+	width: 100%;
+	padding: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+
+textarea {
+	resize: vertical;
+}
+
+.button {
+	background-color: #007bff;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 10px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+	transition: background-color 0.3s ease;
+}
+
+	.button:hover {
+		background-color: #0056b3;
+	}
+
+ul, ol {
+	margin: 0;
+	padding: 0;
+	list-style-position: inside;
+}
+
+	ul li, ol li {
+		margin-bottom: 0.5rem;
+	}
+
+.recipe-item {
+	padding: 1rem;
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+	.recipe-item a {
+		font-weight: bold;
+		color: #007bff;
+		text-decoration: none;
+	}
+
+		.recipe-item a:hover {
+			text-decoration: underline;
+		}
+
+.delete-form {
+	display: inline;
+}
+
+.delete-button {
+	background-color: #dc3545;
+}
+
+	.delete-button:hover {
+		background-color: #c82333;
+	}
