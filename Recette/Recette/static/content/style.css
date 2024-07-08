@@ -78,6 +78,17 @@ ul, ol {
 		margin-bottom: 0.5rem;
 	}
 
+/* style.css */
+
+.recipe-image {
+	width: 600px;
+	height: auto;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+
 .recipe-item {
 	padding: 1rem;
 	border-bottom: 1px solid #ccc;
